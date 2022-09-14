@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jsp3/test5.html</title>
+<script type="text/javascript">
+
+			function fun1() {
+				// 아이디 비어있으면
+				if(document.fr.id.value="") {
+					alert("");
+					document.fr.id.focus();
+					return;
+				}
+				// 비밀번호 비어있으면
+				if(document.fr.pass.value=""){
+					alert("");
+					document.fr.pass.focus();
+					return;
+				}
+				// 자기소개 비어있으면
+				if(document.fr.intro.value=""){
+					alert("");
+					document.fr.intro.focus();
+					return;
+				}
+				// 성별 체크 안되어있으면
+				if(document.fr.ra[0].checked==false && document.fr.ra[1].checked==false){
+					alert("");
+					document.fr.ra.focus();
+					return;
+				}
+				// 취미 체크 안되어있으면
+				if(document.fr.ch[0].checked==false && document.fr.ch[1].checked==false){
+					alert("");
+					document.fr.ch.focus();
+					return;
+				}
+				// 목록상자 선택 안되어있으면
+				if(document.fr.seletedIndex==0){
+					alert("");
+					document.fr.se.focus();
+					return;
+				}
+				 // 폼태크 내용 서버에 전송
+				 document.fr.submit();
+			}
+
+</script>
+</head>
+<body>
+
+			<form action="a.jsp" method="get" name="fr">
+			아이디 : <input type="text" name="id"><br>
+			비밀번호 : <input type="password" name="pass"><br>
+			자기소개 : <textarea name="intro" rows="10" cols="20"></textarea><br>
+			성별 : <input type="radio" name="ra" value="남">남자
+				  <input type="radio" name="ra" value="여">여자<br>
+			취미 : <input type="checkbox" name="ch" value="여행" >여행
+				  <input type="checkbox" name="ch" value="게임">게임<br>
+			목록상자 : <select name="se" > 
+						<option value="">목록 선택하세요</option>
+						<option value="1">목록1</option>
+						<option value="2">목록2</option>
+						<option value="3">목록3</option>
+					</select> <br>
+			<input type="button" value="전송" onclick="fun1()">
+			</form>
+			
+</body>
+</html>

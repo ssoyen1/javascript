@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery1/test6.html</title>
+<script type="text/javascript" src="jquery-3.6.1.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			
+			
+			// 대상.each()	:	반복문 함수()
+			
+// 			$('h1').each(function(index,item){
+// 				alert(index);
+// // 				alert(item.val()); // item : 대상전체
+// 				$('h1').css('color','red');
+// 			});
+			
+			
+			
+			//(1) 태그대상			
+			var arr = ['pink', 'yellow', 'skyblue'];
+
+			$('h1').each(function(index,item){
+					alert(arr[index]);
+					
+					// 전체 색 적용 , 배열사용 
+// 					$('h1').css('color',arr[index]);
+					
+					// 개별 적용 this (1번 핑크 돌면 첫번째h1에 적용 / 2번 옐로우 돌면 두번째 적용/ 3번 하늘색 돌면 세번째 적용)
+					$(this).css('color',arr[index]);
+			});
+			
+			
+			
+			// (2) 배열변수 대상
+			var arr2=[
+				{'id':'kim', 'name':'kimgildong'}, // O 한사람의 값 (X 하나의 값)
+				{'id':'lee', 'name':'leegildong'}, 
+				{'id':'hong', 'name':'honggildong'}, 
+			];
+			
+			
+ 		 // $.each(배열변수,function(index,item){
+			$.each(arr2,function(index,item){
+// 				alert(index);
+// 				alert(item.id);   // item.id : 아이템들 중 id에 해당하는 것 출력
+// 				alert(item.name); // item.name : 아이템들 중 name에 해당하는 것 출력
+// 				$('div').html(item.id+','+item.name+'<br>'); // 출력 : hong,honggildong
+				$('div').append(item.id+','+item.name+'<br>'); // 여러개라면 append를 적음 / 3개 다 출력
+				$('table').append('<tr><td>'+item.id+'</td><td>'+item.name+'</td></tr>');
+				
+			});
+			
+			
+
+		});
+		
+
+
+</script>
+</head>
+<body>
+				<table border="1">
+				<tr><td>아이디</td><td>이름</td></tr>
+				
+				</table>
+				<div></div>		
+				<h1>head-0</h1>
+				<h1>head-1</h1>
+				<h1>head-2</h1>
+</body>
+</html>

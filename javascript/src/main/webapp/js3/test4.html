@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js3/test4.html</title>
+<script type="text/javascript">
+
+//window - lacation(주소줄)
+//		 - history(방문기록)
+//		 - document(html전체) - image, div,...
+//		  			   	     - form - text, password, textarea
+//		   		  		 		    - checkbox, radio
+//	   	   	 		    			- "select"
+
+			// document.form이름.목록상자이름 : form태그 목록상자 내장객체
+			// document.form이름.목록상자이름.변수 		
+			// 				=>  document.form이름.목록상자이름.type 변수: 목록상자이름 타입 저장
+			// 				=>  document.form이름.목록상자이름.value 변수: 목록상자이름 선택된 값 저장
+			// 				=>  document.form이름.목록상자이름.selectedIndex : 목록상자이름 선택되어진 값의 순서 
+		
+			// document.form이름.목록상자이름.함수() 
+			//				=>  document.form이름.목록상자이름.focus() : 목록상자 포커스
+			//
+			
+			
+			
+			function fun1() {
+				alert(document.fr.se.type); // select-one : 하나만 선택할 수 있는 것
+				alert(document.fr.se.value); // 2 (목록2 selected 되어있으므로)
+				alert(document.fr.se.selectedIndex); // 1
+				document.fr.se.focus();
+			}
+			
+			
+			
+			function fun2() {
+				//선택된 순서값 변경
+				document.fr.se.selectedIndex=2; // 목록3선택으로 변경됨
+			}
+			
+			
+			
+			function fun3() {
+				// 선택된 목록의 value 값이 ""이면 목록 선택하세요, 포커스, 되돌아가기
+// 				if(document.fr.se.value=="") {
+// 					alert("목록을 선택하세요");
+// 					document.fr.se.focus();
+// 					return;
+					
+// 				}
+
+				if(document.fr.se.selectedIndex==0) {
+					alert("목록을 선택하세요 ! ");
+					document.fr.se.focus();
+					return;
+					
+				}
+				
+				// 폼태그 내용을 서버에 전송
+				 document.fr.submit();
+			}
+			
+			
+		
+			
+			
+			
+</script>
+</head>
+<body>
+			<form action="a.jsp" method="get" name="fr">
+			목록상자 : <select name="se" > <!-- size=3 3개목록 한 번에 보이도록 / multiple 여러개 선택 가능(ctrl shift 사용)-->
+						<option value="">목록 선택하세요</option>
+						<option value="1">목록1</option>
+						<option value="2">목록2</option>
+						<option value="3">목록3</option>
+					</select>
+			<input type="button" value="정보확인" onclick="fun1()">
+			<input type="button" value="정보변경" onclick="fun2()">
+			<input type="button" value="제어" onclick="fun3()">
+			</form>
+
+</body>
+</html>

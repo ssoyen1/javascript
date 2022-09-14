@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery1/test5.html</title>
+<script type="text/javascript" src="jquery-3.6.1.js"></script>
+<script type="text/javascript">
+
+			// 안의 내용을 변경할 수 있는 함수
+			$(document).ready(function(){
+				
+				
+			// 대상의 기존내용은 사라지고 새로운 내용을 넣을 때 
+			//(1) 대상.html()
+			//(2) 대상.text()
+			
+			
+			
+			
+				//(1) 대상.html() : html 형태의 내용 넣기 (태그인식ㅇ) 
+				//				   https://api.jquery.com/html/#html
+				var d = $('div').html(); // div라는 대상의 html을 들고오겠다.
+// 				alert(d);
+				
+// 				$('div').html('<h1>값</h1>'); // div에 태그가 적용됨
+				
+				
+				
+				//(2) 대상.text() : 값만 넣기 (태그인식X)
+// 				$('div').text('<h1>값</h1>'); // div에 태그가 적용됨
+
+
+
+				// function 사용하기 
+				$('div').html(function(index,oldhtml){
+// 					alert(index);
+// 					alert(oldhtml);
+// 					return "*"+oldhtml+"*";					
+				});
+				
+				
+				
+				// 대상.append()  : 대상 뒷부분에 내용 추가하는 것 (일반적으로 많이 쓰임)  // https://api.jquery.com/append/#append-content-content
+				// 대상.prepend() : 대상 앞부분에 내용 추가하는 것
+// 				$('body').append('추가 내용');
+				$('body').append('<h1>추가 내용</h1>');
+// 				$('div').append('추가');
+				$('div').append('추가');
+				
+				$('body').prepend('<h1>추가 내용</h1>');
+				$('div').prepend('앞에 추가');
+			});
+
+		
+</script>
+</head>
+<body>
+				<div>내용1</div>
+				<div>내용2</div>
+				<div>내용3</div>
+</body>
+</html>

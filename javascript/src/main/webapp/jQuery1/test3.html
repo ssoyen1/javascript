@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery1/test3.html</title>
+<script type="text/javascript" src="jquery-3.6.1.js"></script>
+<script type="text/javascript">
+
+
+		$(document).ready(function(){
+	
+			
+		// 대상.함수()
+		var c=$('h1').css('color'); // https://api.jquery.com/css/#css-propertyName
+// 		alert(c);					// 출력 : rgb(0, 0, 0) 
+		$('h1').css('color','blue');
+		$('h1').css('background-color','skyblue');
+		$('h1').css({ // 위에 두개 합침 (중괄호 사용하여 속성 여러개 하는 방법)
+					 
+			'color':'red',
+			'background-color':'pink'
+		});
+			
+		
+		// index h1대상의 순서값
+		// 적용대상이 여러개일 때 : function(반복문)을 사용 
+		
+// 		$('h1').css('font-weight',900) // 전체 적용
+		$('h1').css('color', function(index){  //적용대상이 여러개이므로 function 사용해서 개별적용
+			alert(index); 					   // 인덱스값 출력
+			
+			if(index==0){
+				return 'red';
+			}else if(index==1){
+				return 'green';
+			}else{
+				return 'blue';
+			}
+		});
+		
+		// 자바스크립트 배열
+		var arr=['pink','yellow','skyblue'];
+		$('h1').css('background-color', function(index){
+// 			alert(index); // 배열의 0,1,2는 'pink','yellow','skyblue' 이라는 뜻. 팝업 순서대로 뜸
+// 			alert(arr[index]);
+			return arr[index];
+		});
+		
+		
+		
+		
+	});
+	
+</script>
+</head>
+<body>
+
+		<h1>head-0</h1>
+		<h1>head-1</h1>
+		<h1>head-2</h1>
+		
+
+</body>
+</html>

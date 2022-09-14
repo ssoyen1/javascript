@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery1/test4.html</title>
+<script type="text/javascript" src="jquery-3.6.1.js"></script>
+<script type="text/javascript">
+
+
+		$(document).ready(function(){
+			
+			// 대상.함수() attr('태그속성','값')  / https://api.jquery.com/attr/#attr-attributeName
+			//								/ attribute 속성의 약자 
+			var w = $('img').attr('width');
+// 			alert(w);
+// 			$('#img'); // id="img1" / id는 #사용
+			$('#img1').attr('width',300); 
+			$('#img1').attr('height',200); 
+			$('#img1').attr('border',20); 
+			
+			$('#img1').attr({ //모든 속성들을 가져와서 한 번에 적용 할 수 있음.
+				
+				'width':500,
+				'height':300,
+				'border':30 
+				
+			});
+			
+			
+			// img 태그 대상으로 width 100 200 300 
+			var arr=[100,200,300];
+			$('img').attr('width',function(index){ // img태그가 여러개 있을때 
+				return arr[index];
+				
+			});
+			
+		});
+
+</script>
+</head>
+<body>
+
+		<img src="../js2/1.jpg" width="200" height="100" border="10" id="img1">  <!-- 이미지태그의 속성 -->
+		<img src="../js2/2.jpg" width="200" height="100" border="10">  <!-- 이미지태그의 속성 -->
+		<img src="../js2/3.jpg" width="200" height="100" border="10">  <!-- 이미지태그의 속성 -->
+		
+</body>
+</html>

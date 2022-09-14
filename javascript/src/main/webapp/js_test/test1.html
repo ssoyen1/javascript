@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js_test/test1.html</title>
+<script type="text/javascript">
+
+	
+
+	function fun1 () {
+		if(document.fr.name.value=="") {
+			alert("이름을 입력해주세요");
+			document.fr.name.focus();
+			return;
+		}
+		
+		if(document.fr.jumin1.value=="") {
+			alert("주민등록번호 앞자리를 입력해주세요");
+			document.fr.jumin1.focus();
+			return;
+		}
+		
+		
+		if(document.fr.jumin1.value.length !=6){
+			alert("주민등록번호 앞자리는 6자 입력");
+			document.fr.jumin1.focus();
+			return;
+		}
+		
+		if(document.fr.jumin2.value=="") {
+			alert("주민등록번호 뒷자리를 입력해주세요");
+			document.fr.jumin2.focus();
+			return;
+		}
+		
+		if(document.fr.jumin2.value.length !=7){
+			alert("주민등록번호 앞자리는 7자 입력");
+			document.fr.jumin2.focus();
+			return;
+		}
+		
+		
+		if(document.fr.id.value=="") {
+			alert("아이디 입력해주세요");
+			document.fr.id.focus();
+			return;
+		}
+		
+		
+		if(document.fr.id.value.length < 4 || document.fr.id.value.length > 10){
+			alert("아이디의 길이는 4~10자이내로 입력하세요");
+			document.fr.id.focus();
+			return;
+		}
+		
+		if(document.fr.pw.value=="") {
+			alert("비밀번호를 입력해주세요");
+			document.fr.pw.focus();
+			return;
+		}
+		
+		if(document.fr.pw.value.length < 4 || document.fr.pw.value.length > 10){
+			alert("비밀번호의 길이는 4~10자이내로 입력하세요");
+			document.fr.pw.focus();
+			return;
+		}
+		
+		if(document.fr.pw2.value=="") {
+			alert("비밀번호확인을 입력해주세요");
+			document.fr.pw2.focus();
+			return;
+		}
+		
+		
+		if(!(document.fr.pw.value == document.fr.pw2.value)) {
+			alert("비밀번호가 일치하지않습니다."); 
+			document.fr.pw.focus();
+			return;
+		}
+		
+		if(document.fr.tel.value=="") {
+			alert("전화번호 입력해주세요");
+			document.fr.tel.focus();
+			return;
+		}
+		
+		if(document.fr.mem.value=="") {
+			alert("회원분류를 선택해주세요");
+			document.fr.mem.focus();
+			return;
+		}
+		
+		
+		
+	}
+	
+	function fun2() {
+		if(document.fr.id.value!=="") {	
+			alert("중복확인완료");
+		}
+			return;
+	}
+
+	
+	function windowopen() {
+		window.open("js_test/test2.html","width=500, height=250");
+	}
+	document.fr.submit();
+
+</script>
+</head>
+<body>
+
+<!-- 가입버튼 누르면 필수사항 제어 -->
+<!-- 비밀번호와 비밀번호확인이 일치하는가 -->
+<!-- 우편번호 창열기 (X이동) , 아이콘대신 특수문자사용O -->
+	<form action="a.jsp" method="post" name="fr">
+<!-- 		<input type="text" placeholder="표시는 반드시 입력하셔야합니다."><br> -->
+	　　　<fieldset>　
+			<legend>Registration</legend>
+			　<label>　　　● 표시는 반드시 입력하셔야합니다</label><br>
+	　　　　　　　● 이름　　 <input type="text" name="name"><br>
+	　　　　 　● 주민등록번호<input type="text" name="jumin1" style = "width:100px">-
+					 <input type="text" name="jumin2" style = "width:100px" ><br>
+	　　　　　　　● 회원ID 　<input type="text" name="id">
+						<input type="button" value="중복확인" onclick="fun2()">
+						<br>
+	　　　　　　　● 비밀번호 <input type="password" name="pw"  ><br>
+	　　　　　 ● 비밀번호확인 <input type="password" name="pw2"><br> 
+	　　　　　　  　 　 　Email <input type="email" name="email"><br>
+	　　　　　　 ● 전화번호 　<input type="tel" name="tel"><br>
+	　　　　　　 　핸드폰번호 <input type="tel"name="tel2"><br>
+	　　　　　　　 우편번호　<input type="text" name="postnum" style = "width:100px">-
+					   <input type="text" name="postnum" style = "width:100px"><br>
+　　　　　　　　　　　　<input type="text" name="postnum">             <!-- execDaumPostcode() -->
+						<input type="button" value="검색" onclick="window.open()"><br>
+	　　　　　　　 상세주소　<input type="text" name="address"><br>
+	　　　　　　　 ● 회원분류<select name="mem">
+				  			<option value="1">회원1</option>
+				  			<option value="2">회원2</option>
+				  			<option value="3">회원3</option>
+				  		</select><br>
+	　　　　　　　　　　　　　<input type="button" value="가입" onclick="fun1()">
+					<input type="button" value="취소" onclick="fun()">
+
+		</fieldset>
+	</form>
+</body>
+</html>

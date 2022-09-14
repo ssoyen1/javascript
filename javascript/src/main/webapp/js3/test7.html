@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js3/test7.html</title>
+<script type="text/javascript">
+      function fun1(){
+//          if(document.fr.id.value == ""){                         // 아이디 비어있을 때
+//             alert("아이디를 입력하세요!");
+//             document.fr.id.focus();
+//             return false;
+//          }
+         
+         if(document.getElementById("id2").value == ""){           // 아이디 값을 바로 들고옴
+             document.getElementById("iddiv").innerHTML="아이디 입력하세요"; //alert대신사용 // <div id="iddiv"></div><br>와 상응
+        	 //alert("아이디를 입력하세요!");
+         	
+             document.fr.id.focus();
+             return false;
+          }
+         
+//         if(document.fr.pass.value == ""){                      // 비밀번호 비어있을 때
+//            alert("비밀번호를 입력하세요!");
+//            document.fr.pass.focus();
+//            return false;
+            
+         if(document.getElementById("pw2").value == ""){           // 아이디 값을 바로 들고옴
+             alert("비밀번호를 입력하세요!");
+             document.fr.pw.focus();
+             return false;
+          }
+         
+         
+// 		if(document.fr.name.value==""){
+// 			alert("이름을 입력하세요");
+// 			document.fr.name.focus();
+// 			return;
+// 		}
+		
+         if(document.getElementById("name2").value == ""){           // 아이디 값을 바로 들고옴
+             alert("이름을 입력하세요!");
+             document.fr.name.focus();
+             return false;
+          }
+         
+         if(document.fr.gender[0].checked == false && document.fr.gender[1].checked == false){       // 성별 체크 안 되어있을 때
+            alert("성별을 선택하세요!");
+            return false;
+         }
+         if(document.fr.hobby[0].checked == false && document.fr.hobby[1].checked == false){       // 취미 체크X
+            alert("취미를 선택하세요!");
+            return false;
+         }
+         if(document.fr.se.selectedIndex == 0){                   // 목록상자 체크X
+            alert("목록상자를 체크하세요!");
+            document.fr.se.focus();
+            return false;
+         }
+         if(document.fr.intro.value == ""){                      // 자기소개 비어있을 때
+            alert("자기소개를 입력하세요!");
+            document.fr.intro.focus();
+            return false;
+         }
+         
+      }
+
+</script>
+</head>
+<body>
+   <form action="a.jsp" method="get" name="fr" onsubmit="return fun1()">
+            아이디 : <input type="text" name="id" id="id2"><br>
+            	   <div id="iddiv"></div><br>
+            비밀번호 : <input type="password" name="pw" id="pw2"><br>
+            이름 : <input type="text" name="name" id="name2"><br>
+            성별 : <input type="radio" name="gender" value="남">남자
+                 <input type="radio" name="gender" value="여">여자<br>
+            취미 : <input type="checkbox" name="hobby" value="여행"> 여행
+                  <input type="checkbox" name="hobby" value="축구"> 축구
+                 <input type="checkbox" name="hobby" value="게임"> 게임 <br>
+            회원등급 : <select name="grade">               
+                     <option value="">등급선택</option>
+                     <option value="1">1등급</option>
+                     <option value="2">2등급</option>
+                     <option value="3">3등급</option>
+                  </select><br>     
+            자기소개 : <br><textarea name="intro" rows="10" cols="20"></textarea><br>      
+            
+            <input type="submit" value="회원가입">
+
+         </form>
+</body>
+</html>

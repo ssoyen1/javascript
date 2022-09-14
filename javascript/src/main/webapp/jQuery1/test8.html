@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery1/test8.html</title>
+<script type="text/javascript" src="jquery-3.6.1.js"></script>
+<script type="text/javascript">
+
+		$(document).ready(function(){
+			$('#fr').submit(function(){
+// 				alert("전송");
+				
+				// 대상.val() : 컴퓨터에 저장되어있는 value값 가져오기 함수
+// 				alert($('#id').val());  // 창에 아이디들 뜸
+// 				alert($('#pass').val());
+
+				if($('#id').val()==""){ // 혹은 $('input[name=id]') / 아이디가 입력되지 않았다면
+					alert("아이디 입력");
+					$('#id').focus();
+					return false; // 기존의 동작(submit)들을 중지하겠다.
+					
+				}
+				
+				if($('#pass').val()==""){ // 비밀번호가 입력되지 않았다면
+					alert("비밀번호 입력");
+					$('#pass').focus();
+					return false;
+				}
+				
+// 				alert($('#gen1').is(':checked')); // 남 체크되면 true, 안되어있으면 false
+				if($('#gen1').is(':checked')==false && $('#gen2').is(':checked')==false){
+					alert("성별 체크");
+					return false;
+				}
+			});			
+			
+		});
+
+</script>
+</head>
+<body>
+
+		<form action="a.jsp" method="get" id="fr">
+			아이디 <input type="text" name="id" id="id"><br>
+			비밀번호 <input type="password" name="pass" id="pass"><br>
+			성별 <input type="radio" name="gender" id="gen1">남
+		        <input type="radio" name="gender" id="gen2">여<br>
+			<input type="submit" value="전송">
+			
+		</form>
+
+</body>
+</html>

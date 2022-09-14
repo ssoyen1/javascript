@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery1/test2.html</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		// alert("동작");
+		// 대상.함수();
+		// 대상전체대상 *, 태그대상 h1,
+		
+		// $(대상).함수();
+		// $('*').css('속성','값');
+		$('*').css('color','blue');
+		$('h1').css('color','red');
+		$('p').css('color','green');
+		
+		// id = "hh" 대상으로 배경색 설정
+		$('#hh').css('background-color','pink');
+		
+		// id = "pp" 대상으로 배경색 노란색 설정
+		$('#pp').css('background-color','yellow');
+		
+		// class="hhh" 대상으로 배경색 skyblue 설정
+		$('.hhh').css('background-color','skyblue');
+		
+		// class="ppp" 대상으로 배경색 orange 설정
+		$('.ppp').css('background-color','orange');
+		
+		// 태그[속성=값] 태그[조건] 
+		$('input[type=text]').css('color','black');
+		$('input[type=password]').css('color','red');
+		
+		$('a[href]').css('background-color','yellow');
+		
+		// 태그[속성 ^= 값] : 속성에서 값으로 시작하는
+		$('a[href^=jquery]').css('background-color','pink');  //하이퍼링크2
+		
+		// 태그[속성 $= 값] : 속성에서 값으로 끝나는 
+		$('a[href $= xls]').css('background-color', 'skyblue'); //하이퍼링크3
+		
+		// 태그[속성 *= 값] : 속성에서 값 포함
+		$('a[href *= cd]').css('background-color', 'green'); //cd라는 글자를 포함하는 것 / 하이퍼링크4
+		
+		
+		
+		//tr태그 적용하기
+			// 짝수 even
+			// 홀수 odd
+			// 첫번째 first
+			// 마지막 last
+			// 지정 eq(인덱스)
+		
+		$('tr:even').css('background-color','pink'); //tr태그대상 짝수번째
+		$('tr:odd').css('background-color','yellow'); //tr태그대상 홀수번째
+		$('tr:first').css('background-color','skyblue'); //tr태그대상 첫번째
+		$('tr:last').css('background-color','green'); //tr태그대상 마지막
+		$('tr:eq(1)').css('background-color','blue'); // tr태그대상 1번에 있는 것 (0번부터시작)
+		
+		
+		});
+</script>
+</head>
+<body>
+		
+			<table>
+				<tr><td>번호</td><td>제목</td></tr> <!-- 0번째부터 시작-->
+				<tr><td>1</td><td>제목1</td></tr>
+				<tr><td>2</td><td>제목2</td></tr>
+				<tr><td>3</td><td>제목3</td></tr>
+				<tr><td>4</td><td>제목4</td></tr>
+			</table>
+			
+			<a>하이퍼링크1</a>
+			<a href="test1.html">하이퍼링크2</a>
+			<a href="jquery-3.6.1.js">하이퍼링크3</a>
+			<a href="a.xls">하이퍼링크4</a>
+			<a href="abcd.jsp">하이퍼링크4</a>
+			
+			<input type="text">
+			<input type="password">
+			
+			<h1>제목1</h1>
+			<h1 id = "hh">제목2</h1>
+			<h1 class = "hhh">제목3</h1>
+			
+			<p>본문 내용1</p>
+			<p id = "pp">본문 내용2</p>
+			<p class = "ppp">본문 내용3</p>
+			
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery1/test7.html</title>
+<script type="text/javascript" src="jquery-3.6.1.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+			// 대상.함수()	   대상.bind('이벤트종류',기능)	대상.click(기능)
+			//				  (연결하겠다)
+		
+			$('h1').bind('click',function(){
+// 				$('h1').html('변경');  // 전체변경
+				$(this).html('변경');  // 하나만 변경
+			});
+			
+			$('div').click(function(){
+				$(this).append('+'); // 클릭하는 것만 뒤에 '+' 추가됨
+				
+				// 이벤트 한번만 수행하고 멈춤 (unbind:연결끊겠다)
+				$(this).unbind();
+			});
+			
+			
+			// 마우스 오버/ 아웃
+			$('img').mouseover(function(){ // img라는 대상에 마우스 오버했을때 src 속성값을 바꾸겠다.
+				$(this).attr('src','../js2/2.jpg')
+			}); 
+			
+			$('img').mouseout(function(){ 
+				$(this).attr('src','../js2/1.jpg')
+			}); 
+			
+			
+			
+			// 대상.함수().함수() (위의 두개 식 한번에 연결)
+// 			$('img').mouseover(function(){ // img라는 대상에 마우스 오버했을때 src 속성값을 바꾸겠다.
+// 				$(this).attr('src','../js2/2.jpg')
+// 			}).mouseout(function(){ 
+// 				$(this).attr('src','../js2/1.jpg')
+			
+	});
+
+</script>
+</head>
+<body>
+		<img src="../js2/1.jpg">
+		<h1>head-0</h1>
+		<h1>head-1</h1>
+		<h1>head-2</h1>
+		<div>div-0</div>
+		<div>div-1</div>
+		<div>div-2</div>
+</body>
+</html>
