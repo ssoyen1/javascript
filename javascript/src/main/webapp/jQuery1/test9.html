@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery1/test9.html</title>
+<style type="text/css">
+	#d {
+		width:50px; height:50px; background-color:orange;
+	}
+</style>
+<script type="text/javascript" src="jquery-3.6.1.js"></script>
+<script type="text/javascript">
+			
+			
+			
+		$(document).ready(function(){
+				// 효과 
+				// show() 
+				// hide() 
+				// toggle()
+				// slideDown()
+				// slidUp()
+				// slideToggle()
+				// fadeIn()
+				// fadeOut()
+				// fadeToggle()
+				
+				// h1태그를 클릭했을때 효과주기
+				$('h1').click(function(){
+// 					alert("클릭");
+				// next() 그 대상 다음태그		
+					$(this).next().toggle('slow',function(){//천천히 사라지게 
+						alert('효과 끝'); //효과끝나면 창뜨게하기
+						
+						
+						
+					}); 
+				});
+				
+				
+				// 애니메이션 효과 (바디태그에 div태그넣고 style에서 설정/ div태그 클릭했을때 효과)
+				$('#d').click(function(){
+// 					alert("클릭");
+					var w = $(this).css('width');
+					var h = $(this).css('height');
+// 					alert(w); // 50px씩 출력
+// 					alert(h); //
+					
+					// animate() 함수 이용 => 클릭할때 마다 너비 높이 50 증가
+					$(this).animate({
+						width : parseInt(w)+50, //parsInt : w를 정수형으로 바꾸겠다.
+						height : parseInt(h)+50, //			h를 정수형으로 바꾸겠다.
+					},'slow');
+					
+				});
+		});
+
+</script>
+
+</head>
+<body>
+		<div id="d"></div>
+		
+		
+		<h1>열고 닫기1</h1>
+		<div>
+		<h1>제목1</h1>
+		<p>내용1</p>
+		</div>
+		<h1>열고 닫기2</h1>
+		<div>
+		<h1>제목2</h1>
+		<p>내용2</p>
+		</div>
+</body>
+</html>
