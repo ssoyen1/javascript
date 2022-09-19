@@ -27,7 +27,7 @@
 			$('#btn').click(function(){
 				$.ajax({
 					url:'html1.jsp', 
-					success:function(rdata){
+					success:function(rdata){ //// HTTP 요청 성공 시 이벤트 핸들러
 						$('table').append('<tr><td>'+rdata+'</td></tr>');
 					
 					}
